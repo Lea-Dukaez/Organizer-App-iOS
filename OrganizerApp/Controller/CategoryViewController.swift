@@ -26,13 +26,10 @@ class CategoryViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberOfRowsInSection called")
-        
         return categories?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cellForRowAt called")
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         
         cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categaries added yet"
@@ -70,7 +67,6 @@ class CategoryViewController: UITableViewController {
                 newCategory.name = textField.text!
 
                 self.save(category: newCategory)
-                
             }
         }
         
