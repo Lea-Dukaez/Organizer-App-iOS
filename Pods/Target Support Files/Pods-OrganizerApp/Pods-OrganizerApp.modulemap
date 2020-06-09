@@ -1,0 +1,6 @@
+framework module Pods_OrganizerApp {
+  umbrella header "Pods-OrganizerApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
