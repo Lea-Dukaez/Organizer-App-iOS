@@ -20,8 +20,19 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadCategories()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
+        let bar = UINavigationBarAppearance()
+        bar.backgroundColor = UIColor(hexString: "E66767")
+        navBar.standardAppearance = bar
+        navBar.compactAppearance = bar
+        navBar.scrollEdgeAppearance = bar
+        navBar.tintColor = ContrastColorOf(UIColor(hexString: "E66767")!, returnFlat: true)
+        navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(UIColor(hexString: "E66767")!, returnFlat: true)]
     }
 
     // MARK: - TableView Datasource Methods
@@ -34,8 +45,22 @@ class CategoryViewController: SwipeTableViewController {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
-        cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categaries added yet"
-        cell.backgroundColor = UIColor(hexString: categories?[indexPath.row].color ?? "E66767")
+        if let category = categories?[indexPath.row] {
+            cell.textLabel?.text = category.name
+            
+            guard let caterogyColor = UIColor(hexString: category.color) else {fatalError()}
+            
+            cell.backgroundColor = caterogyColor
+            cell.textLabel?.textColor = ContrastColorOf(caterogyColor, returnFlat: true)
+            
+        } else {
+            cell.textLabel?.text = "No Categaries added yet"
+        }
+        
+        
+        
+        
+        
 
         return cell 
     }
@@ -70,7 +95,8 @@ class CategoryViewController: SwipeTableViewController {
             } else {
                 let newCategory = Category()
                 newCategory.name = textField.text!
-                newCategory.color = UIColor.randomFlat().hexValue()
+                newCategory.color = RandomFlatColorWithShade(.light).hexValue()
+//                    UIColor.randomFlat().hexValue()
                 print(newCategory.color)
                 self.save(category: newCategory)
             }

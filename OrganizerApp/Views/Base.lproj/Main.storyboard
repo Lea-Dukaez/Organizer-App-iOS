@@ -39,7 +39,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="Fhz-a2-Afp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jhl-FP-IDj">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="p4G-tb-reJ" id="WJI-uQ-pQV"/>
                             </connections>
@@ -61,10 +60,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="HbM-ot-16S">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.90196078430000004" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -100,7 +95,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Todoey" id="RHo-6H-h4b">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f8w-Na-bKN">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="c5p-MC-SDs" id="kxi-US-qlp"/>
                             </connections>

@@ -13,6 +13,17 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+//        if #available(iOS 13.0, *) {
+//            let appearance = UINavigationBarAppearance()
+//            appearance.backgroundColor = UIColor(hexString: "E66767")
+//            UINavigationBar.appearance().standardAppearance = appearance
+//            UINavigationBar.appearance().compactAppearance = appearance
+//            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//        } else {
+//            UINavigationBar.appearance().barTintColor = UIColor(hexString: "E66767")
+//        }
+//        
 
         print(Realm.Configuration.defaultConfiguration.fileURL)
 
