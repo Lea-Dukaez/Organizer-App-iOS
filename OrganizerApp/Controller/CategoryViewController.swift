@@ -26,13 +26,17 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
+        
         let bar = UINavigationBarAppearance()
+        bar.configureWithOpaqueBackground()
         bar.backgroundColor = UIColor(hexString: "E66767")
+        bar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
         navBar.standardAppearance = bar
         navBar.compactAppearance = bar
         navBar.scrollEdgeAppearance = bar
         navBar.tintColor = ContrastColorOf(UIColor(hexString: "E66767")!, returnFlat: true)
-        navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(UIColor(hexString: "E66767")!, returnFlat: true)]
+
     }
 
     // MARK: - TableView Datasource Methods
@@ -56,11 +60,6 @@ class CategoryViewController: SwipeTableViewController {
         } else {
             cell.textLabel?.text = "No Categaries added yet"
         }
-        
-        
-        
-        
-        
 
         return cell 
     }
@@ -96,8 +95,6 @@ class CategoryViewController: SwipeTableViewController {
                 let newCategory = Category()
                 newCategory.name = textField.text!
                 newCategory.color = RandomFlatColorWithShade(.light).hexValue()
-//                    UIColor.randomFlat().hexValue()
-                print(newCategory.color)
                 self.save(category: newCategory)
             }
         }
